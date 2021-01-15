@@ -19,12 +19,13 @@ class BinomialCoefficients:
             for j in range(i+1):
                 if j == 0 or j == i:
                     BinomialCoefficients._table[i].append(1)
-                else:
-                    right_above = 0
-                    if j < len(BinomialCoefficients._table[i-1]):
-                        right_above = BinomialCoefficients._table[i-1][j]
-                    value_i_choose_k = BinomialCoefficients._table[i-1][j-1] + right_above
-                    BinomialCoefficients._table[i].append(value_i_choose_k)
+                    continue
+
+                right_above = 0
+                if j < len(BinomialCoefficients._table[i-1]):
+                    right_above = BinomialCoefficients._table[i-1][j]
+                value_i_choose_k = BinomialCoefficients._table[i-1][j-1] + right_above
+                BinomialCoefficients._table[i].append(value_i_choose_k)
 
     @staticmethod
     def print_table(table):
