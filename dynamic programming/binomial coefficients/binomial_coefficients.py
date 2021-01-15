@@ -30,11 +30,11 @@ class BinomialCoefficients:
     @staticmethod
     def print_table(table):
         """Pretty prints the pascal's triangle"""
-        for i in range(len(table)):
-            for j in range(len(table[0])):
-                if table[i][j] == 0:
+        for row in table:
+            for val in row:
+                if val == 0:
                     break
-                print(f"{table[i][j]} ", end=" ")
+                print(f"{val} ", end=" ")
             print("")
 
     @staticmethod
