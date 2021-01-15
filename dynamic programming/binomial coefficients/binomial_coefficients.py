@@ -2,10 +2,9 @@ class BinomialCoefficients:
     _table = [[0]]
 
     @staticmethod
-    def extend_table(extend_by):
-        """Extend the table by extend_by number of rows"""
-        current_length = len(BinomialCoefficients._table)
-        BinomialCoefficients.compute_pascal_triangle(current_length, current_length + extend_by)
+    def extend_table(extend_to):
+        """Extend the table to the given row"""
+        BinomialCoefficients.compute_pascal_triangle(len(BinomialCoefficients._table), extend_to)
 
     @staticmethod
     def compute_pascal_triangle(rows_begin, rows_end):
@@ -49,7 +48,7 @@ class BinomialCoefficients:
             return 0
 
         if n > len(BC._table):
-            BC.extend_table(n-len(BC._table))
+            BC.extend_table(n)
 
         return BC._table[n][k]
 
@@ -59,7 +58,7 @@ class BinomialCoefficients:
 
         BC = BinomialCoefficients
         if len(BC._table) < n:
-            BC.extend_table(n-len(BC._table))
+            BC.extend_table(n)
 
 
 BinomialCoefficients.precompute(10)
